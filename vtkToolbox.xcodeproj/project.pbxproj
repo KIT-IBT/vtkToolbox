@@ -1,0 +1,551 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D70E90A423DDF6E300A842D4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D70E90A623DDF6E300A842D4 /* vtkToolbox */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = vtkToolbox; sourceTree = BUILT_PRODUCTS_DIR; };
+		D737FE2323DDF7340061D006 /* vtkAppendFilter.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkAppendFilter.cxx; sourceTree = "<group>"; };
+		D737FE2523DDF7340061D006 /* vtkCleanPolyData.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkCleanPolyData.cxx; sourceTree = "<group>"; };
+		D737FE2723DDF7340061D006 /* vtkContourFilter.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkContourFilter.cxx; sourceTree = "<group>"; };
+		D737FE2923DDF7340061D006 /* vtkAlignNodesWithElectrodes.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkAlignNodesWithElectrodes.cxx; sourceTree = "<group>"; };
+		D737FE2A23DDF7340061D006 /* Matrix3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix3.h; sourceTree = "<group>"; };
+		D737FE2B23DDF7340061D006 /* Vector3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector3.h; sourceTree = "<group>"; };
+		D737FE2D23DDF7340061D006 /* vtkThreshold.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkThreshold.cxx; sourceTree = "<group>"; };
+		D737FE2F23DDF7340061D006 /* vtkAppendPolyData.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkAppendPolyData.cxx; sourceTree = "<group>"; };
+		D737FE3123DDF7340061D006 /* vtkToStruct.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkToStruct.cxx; sourceTree = "<group>"; };
+		D737FE3223DDF7340061D006 /* vtkToStruct.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vtkToStruct.h; sourceTree = "<group>"; };
+		D737FE3323DDF7340061D006 /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		D737FE3423DDF7340061D006 /* structToVtk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = structToVtk.h; sourceTree = "<group>"; };
+		D737FE3523DDF7340061D006 /* structToVtk.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = structToVtk.cxx; sourceTree = "<group>"; };
+		D737FE3623DDF7340061D006 /* common.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = common.cxx; sourceTree = "<group>"; };
+		D737FE3823DDF7340061D006 /* vtkDataSetSurfaceFilter.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkDataSetSurfaceFilter.cxx; sourceTree = "<group>"; };
+		D737FE3A23DDF7340061D006 /* vtkTriangleFilter.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkTriangleFilter.cxx; sourceTree = "<group>"; };
+		D737FE3C23DDF7340061D006 /* vtkArrayMapperNearestNeighbor.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkArrayMapperNearestNeighbor.cxx; sourceTree = "<group>"; };
+		D737FE3E23DDF7340061D006 /* vtkPointDataToCellData.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkPointDataToCellData.cxx; sourceTree = "<group>"; };
+		D737FE4023DDF7340061D006 /* vtkLinearSubdivisionFilter.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkLinearSubdivisionFilter.cxx; sourceTree = "<group>"; };
+		D737FE4323DDF7340061D006 /* vtkOFFWriter.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkOFFWriter.cxx; sourceTree = "<group>"; };
+		D737FE4423DDF7340061D006 /* vtkOFFWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vtkOFFWriter.h; sourceTree = "<group>"; };
+		D737FE4523DDF7340061D006 /* vtkOBJWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vtkOBJWriter.h; sourceTree = "<group>"; };
+		D737FE4623DDF7340061D006 /* vtkOBJWriter.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkOBJWriter.cxx; sourceTree = "<group>"; };
+		D737FE4723DDF7340061D006 /* vtkWrite.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkWrite.cxx; sourceTree = "<group>"; };
+		D737FE4923DDF7340061D006 /* vtkLineOfBlock.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkLineOfBlock.cxx; sourceTree = "<group>"; };
+		D737FE4B23DDF7340061D006 /* vtkBooleanOperationPolyDataFilter.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkBooleanOperationPolyDataFilter.cxx; sourceTree = "<group>"; };
+		D737FE4D23DDF7340061D006 /* vtkCellCentroids.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkCellCentroids.cxx; sourceTree = "<group>"; };
+		D737FE4F23DDF7340061D006 /* vtkCellDataToPointData.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkCellDataToPointData.cxx; sourceTree = "<group>"; };
+		D737FE5123DDF7340061D006 /* vtkConnectivityFilter.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkConnectivityFilter.cxx; sourceTree = "<group>"; };
+		D737FE5323DDF7340061D006 /* vtkFeatureEdges.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkFeatureEdges.cxx; sourceTree = "<group>"; };
+		D737FE5523DDF7340061D006 /* vtkStreamTracer.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkStreamTracer.cxx; sourceTree = "<group>"; };
+		D737FE5723DDF7340061D006 /* vtkCleanUnstructuredGrid.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkCleanUnstructuredGrid.cxx; sourceTree = "<group>"; };
+		D737FE5823DDF7340061D006 /* vtkCleanUnstructuredGridClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vtkCleanUnstructuredGridClass.h; sourceTree = "<group>"; };
+		D737FE5923DDF7340061D006 /* vtkCleanUnstructuredGridClass.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkCleanUnstructuredGridClass.cxx; sourceTree = "<group>"; };
+		D737FE5C23DDF7340061D006 /* vtkOFFReader.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkOFFReader.cxx; sourceTree = "<group>"; };
+		D737FE5D23DDF7340061D006 /* vtkOFFReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vtkOFFReader.h; sourceTree = "<group>"; };
+		D737FE5E23DDF7340061D006 /* vtkRead.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkRead.cxx; sourceTree = "<group>"; };
+		D737FE6023DDF7340061D006 /* vtkExtractEdges.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkExtractEdges.cxx; sourceTree = "<group>"; };
+		D737FE6223DDF7350061D006 /* vtkSmoothPolyDataFilter.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vtkSmoothPolyDataFilter.cxx; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D70E90A323DDF6E300A842D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D70E909D23DDF6E300A842D4 = {
+			isa = PBXGroup;
+			children = (
+				D737FE3023DDF7340061D006 /* libvtkMatlab */,
+				D737FE5A23DDF7340061D006 /* vtkRead */,
+				D737FE4123DDF7340061D006 /* vtkWrite */,
+				D737FE2823DDF7340061D006 /* vtkAlignNodesWithElectrodes */,
+				D737FE2223DDF7340061D006 /* vtkAppendFilter */,
+				D737FE2E23DDF7340061D006 /* vtkAppendPolyData */,
+				D737FE3B23DDF7340061D006 /* vtkArrayMapperNearestNeighbor */,
+				D737FE4A23DDF7340061D006 /* vtkBooleanOperationPolyDataFilter */,
+				D737FE4C23DDF7340061D006 /* vtkCellCentroids */,
+				D737FE4E23DDF7340061D006 /* vtkCellDataToPointData */,
+				D737FE2423DDF7340061D006 /* vtkCleanPolyData */,
+				D737FE5623DDF7340061D006 /* vtkCleanUnstructuredGrid */,
+				D737FE5023DDF7340061D006 /* vtkConnectivityFilter */,
+				D737FE2623DDF7340061D006 /* vtkContourFilter */,
+				D737FE3723DDF7340061D006 /* vtkDataSetSurfaceFilter */,
+				D737FE5F23DDF7340061D006 /* vtkExtractEdges */,
+				D737FE5223DDF7340061D006 /* vtkFeatureEdges */,
+				D737FE5423DDF7340061D006 /* vtkStreamTracer */,
+				D737FE3F23DDF7340061D006 /* vtkLinearSubdivisionFilter */,
+				D737FE4823DDF7340061D006 /* vtkLineOfBlock */,
+				D737FE3D23DDF7340061D006 /* vtkPointDataToCellData */,
+				D737FE6123DDF7350061D006 /* vtkSmoothPolyDataFilter */,
+				D737FE2C23DDF7340061D006 /* vtkThreshold */,
+				D737FE3923DDF7340061D006 /* vtkTriangleFilter */,
+				D70E90A723DDF6E300A842D4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D70E90A723DDF6E300A842D4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D70E90A623DDF6E300A842D4 /* vtkToolbox */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D737FE2223DDF7340061D006 /* vtkAppendFilter */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE2323DDF7340061D006 /* vtkAppendFilter.cxx */,
+			);
+			path = vtkAppendFilter;
+			sourceTree = "<group>";
+		};
+		D737FE2423DDF7340061D006 /* vtkCleanPolyData */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE2523DDF7340061D006 /* vtkCleanPolyData.cxx */,
+			);
+			path = vtkCleanPolyData;
+			sourceTree = "<group>";
+		};
+		D737FE2623DDF7340061D006 /* vtkContourFilter */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE2723DDF7340061D006 /* vtkContourFilter.cxx */,
+			);
+			path = vtkContourFilter;
+			sourceTree = "<group>";
+		};
+		D737FE2823DDF7340061D006 /* vtkAlignNodesWithElectrodes */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE2923DDF7340061D006 /* vtkAlignNodesWithElectrodes.cxx */,
+				D737FE2A23DDF7340061D006 /* Matrix3.h */,
+				D737FE2B23DDF7340061D006 /* Vector3.h */,
+			);
+			path = vtkAlignNodesWithElectrodes;
+			sourceTree = "<group>";
+		};
+		D737FE2C23DDF7340061D006 /* vtkThreshold */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE2D23DDF7340061D006 /* vtkThreshold.cxx */,
+			);
+			path = vtkThreshold;
+			sourceTree = "<group>";
+		};
+		D737FE2E23DDF7340061D006 /* vtkAppendPolyData */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE2F23DDF7340061D006 /* vtkAppendPolyData.cxx */,
+			);
+			path = vtkAppendPolyData;
+			sourceTree = "<group>";
+		};
+		D737FE3023DDF7340061D006 /* libvtkMatlab */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE3123DDF7340061D006 /* vtkToStruct.cxx */,
+				D737FE3223DDF7340061D006 /* vtkToStruct.h */,
+				D737FE3323DDF7340061D006 /* common.h */,
+				D737FE3423DDF7340061D006 /* structToVtk.h */,
+				D737FE3523DDF7340061D006 /* structToVtk.cxx */,
+				D737FE3623DDF7340061D006 /* common.cxx */,
+			);
+			path = libvtkMatlab;
+			sourceTree = "<group>";
+		};
+		D737FE3723DDF7340061D006 /* vtkDataSetSurfaceFilter */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE3823DDF7340061D006 /* vtkDataSetSurfaceFilter.cxx */,
+			);
+			path = vtkDataSetSurfaceFilter;
+			sourceTree = "<group>";
+		};
+		D737FE3923DDF7340061D006 /* vtkTriangleFilter */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE3A23DDF7340061D006 /* vtkTriangleFilter.cxx */,
+			);
+			path = vtkTriangleFilter;
+			sourceTree = "<group>";
+		};
+		D737FE3B23DDF7340061D006 /* vtkArrayMapperNearestNeighbor */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE3C23DDF7340061D006 /* vtkArrayMapperNearestNeighbor.cxx */,
+			);
+			path = vtkArrayMapperNearestNeighbor;
+			sourceTree = "<group>";
+		};
+		D737FE3D23DDF7340061D006 /* vtkPointDataToCellData */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE3E23DDF7340061D006 /* vtkPointDataToCellData.cxx */,
+			);
+			path = vtkPointDataToCellData;
+			sourceTree = "<group>";
+		};
+		D737FE3F23DDF7340061D006 /* vtkLinearSubdivisionFilter */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE4023DDF7340061D006 /* vtkLinearSubdivisionFilter.cxx */,
+			);
+			path = vtkLinearSubdivisionFilter;
+			sourceTree = "<group>";
+		};
+		D737FE4123DDF7340061D006 /* vtkWrite */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE4223DDF7340061D006 /* additionalWriters */,
+				D737FE4723DDF7340061D006 /* vtkWrite.cxx */,
+			);
+			path = vtkWrite;
+			sourceTree = "<group>";
+		};
+		D737FE4223DDF7340061D006 /* additionalWriters */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE4323DDF7340061D006 /* vtkOFFWriter.cxx */,
+				D737FE4423DDF7340061D006 /* vtkOFFWriter.h */,
+				D737FE4523DDF7340061D006 /* vtkOBJWriter.h */,
+				D737FE4623DDF7340061D006 /* vtkOBJWriter.cxx */,
+			);
+			path = additionalWriters;
+			sourceTree = "<group>";
+		};
+		D737FE4823DDF7340061D006 /* vtkLineOfBlock */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE4923DDF7340061D006 /* vtkLineOfBlock.cxx */,
+			);
+			path = vtkLineOfBlock;
+			sourceTree = "<group>";
+		};
+		D737FE4A23DDF7340061D006 /* vtkBooleanOperationPolyDataFilter */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE4B23DDF7340061D006 /* vtkBooleanOperationPolyDataFilter.cxx */,
+			);
+			path = vtkBooleanOperationPolyDataFilter;
+			sourceTree = "<group>";
+		};
+		D737FE4C23DDF7340061D006 /* vtkCellCentroids */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE4D23DDF7340061D006 /* vtkCellCentroids.cxx */,
+			);
+			path = vtkCellCentroids;
+			sourceTree = "<group>";
+		};
+		D737FE4E23DDF7340061D006 /* vtkCellDataToPointData */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE4F23DDF7340061D006 /* vtkCellDataToPointData.cxx */,
+			);
+			path = vtkCellDataToPointData;
+			sourceTree = "<group>";
+		};
+		D737FE5023DDF7340061D006 /* vtkConnectivityFilter */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE5123DDF7340061D006 /* vtkConnectivityFilter.cxx */,
+			);
+			path = vtkConnectivityFilter;
+			sourceTree = "<group>";
+		};
+		D737FE5223DDF7340061D006 /* vtkFeatureEdges */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE5323DDF7340061D006 /* vtkFeatureEdges.cxx */,
+			);
+			path = vtkFeatureEdges;
+			sourceTree = "<group>";
+		};
+		D737FE5423DDF7340061D006 /* vtkStreamTracer */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE5523DDF7340061D006 /* vtkStreamTracer.cxx */,
+			);
+			path = vtkStreamTracer;
+			sourceTree = "<group>";
+		};
+		D737FE5623DDF7340061D006 /* vtkCleanUnstructuredGrid */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE5723DDF7340061D006 /* vtkCleanUnstructuredGrid.cxx */,
+				D737FE5823DDF7340061D006 /* vtkCleanUnstructuredGridClass.h */,
+				D737FE5923DDF7340061D006 /* vtkCleanUnstructuredGridClass.cxx */,
+			);
+			path = vtkCleanUnstructuredGrid;
+			sourceTree = "<group>";
+		};
+		D737FE5A23DDF7340061D006 /* vtkRead */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE5B23DDF7340061D006 /* additionalReaders */,
+				D737FE5E23DDF7340061D006 /* vtkRead.cxx */,
+			);
+			path = vtkRead;
+			sourceTree = "<group>";
+		};
+		D737FE5B23DDF7340061D006 /* additionalReaders */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE5C23DDF7340061D006 /* vtkOFFReader.cxx */,
+				D737FE5D23DDF7340061D006 /* vtkOFFReader.h */,
+			);
+			path = additionalReaders;
+			sourceTree = "<group>";
+		};
+		D737FE5F23DDF7340061D006 /* vtkExtractEdges */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE6023DDF7340061D006 /* vtkExtractEdges.cxx */,
+			);
+			path = vtkExtractEdges;
+			sourceTree = "<group>";
+		};
+		D737FE6123DDF7350061D006 /* vtkSmoothPolyDataFilter */ = {
+			isa = PBXGroup;
+			children = (
+				D737FE6223DDF7350061D006 /* vtkSmoothPolyDataFilter.cxx */,
+			);
+			path = vtkSmoothPolyDataFilter;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D70E90A523DDF6E300A842D4 /* vtkToolbox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D70E90AD23DDF6E300A842D4 /* Build configuration list for PBXNativeTarget "vtkToolbox" */;
+			buildPhases = (
+				D70E90A223DDF6E300A842D4 /* Sources */,
+				D70E90A323DDF6E300A842D4 /* Frameworks */,
+				D70E90A423DDF6E300A842D4 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = vtkToolbox;
+			productName = vtkToolbox;
+			productReference = D70E90A623DDF6E300A842D4 /* vtkToolbox */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D70E909E23DDF6E300A842D4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = ibt;
+				TargetAttributes = {
+					D70E90A523DDF6E300A842D4 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = D70E90A123DDF6E300A842D4 /* Build configuration list for PBXProject "vtkToolbox" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D70E909D23DDF6E300A842D4;
+			productRefGroup = D70E90A723DDF6E300A842D4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D70E90A523DDF6E300A842D4 /* vtkToolbox */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D70E90A223DDF6E300A842D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D70E90AB23DDF6E300A842D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D70E90AC23DDF6E300A842D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D70E90AE23DDF6E300A842D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = "/Volumes/bordeaux/IBT/thirdparty/macosx/include/vtk-7.1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D70E90AF23DDF6E300A842D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = "/Volumes/bordeaux/IBT/thirdparty/macosx/include/vtk-7.1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D70E90A123DDF6E300A842D4 /* Build configuration list for PBXProject "vtkToolbox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D70E90AB23DDF6E300A842D4 /* Debug */,
+				D70E90AC23DDF6E300A842D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D70E90AD23DDF6E300A842D4 /* Build configuration list for PBXNativeTarget "vtkToolbox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D70E90AE23DDF6E300A842D4 /* Debug */,
+				D70E90AF23DDF6E300A842D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D70E909E23DDF6E300A842D4 /* Project object */;
+}
