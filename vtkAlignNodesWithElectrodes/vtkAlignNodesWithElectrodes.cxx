@@ -54,7 +54,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     vtkSmartPointer<vtkPolyData> polyData2 = vtkSmartPointer<vtkPolyData>::New();
     vtkSmartPointer<vtkUnstructuredGrid> unstructuredGrid2 = vtkSmartPointer<vtkUnstructuredGrid>::New();
     vtkPointSet* pointSet2 = structToVtk(prhs[1], polyData2, unstructuredGrid2, false);
-    if(polyData1->GetDataObjectType() != VTK_POLY_DATA)
+    if(polyData2->GetDataObjectType() != VTK_POLY_DATA)
         mexErrMsgTxt("vtkAlignNodesWithElectrodes requires poly data as second input. Incompatible cell(s) found.");
     
     //////////

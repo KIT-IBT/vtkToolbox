@@ -45,7 +45,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     
     mwSize numValues = mxGetNumberOfElements(prhs[3]);
     double* values = mxGetPr(prhs[3]);
-    for(mwSize i = 0; i <= numValues; i++)
+    for(mwSize i = 0; i < numValues; i++)
     {
         if(!std::isfinite(values[i]))
             mexErrMsgTxt(("values(" + std::to_string(i) + ") is not finite.").c_str());

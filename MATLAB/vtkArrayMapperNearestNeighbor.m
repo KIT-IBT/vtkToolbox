@@ -9,4 +9,4 @@
 % Institute of Biomedical Engineering, KIT
 % www.ibt.kit.edu
 
-function vtkArrayMapperNearestNeighbor(sourceStruct, targetStruct) %#ok
+function outStruct = vtkArrayMapperNearestNeighbor(sourceStruct, targetStruct) %#ok

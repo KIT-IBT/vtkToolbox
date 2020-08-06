@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.3)
 set(CMAKE_BUILD_TYPE Release)
 set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
 project(vtkToolbox)
 
 # Move MEX binaries to vtkToolbox/MATLAB
@@ -31,6 +32,7 @@ set(VTK_COMPONENTS
     vtkFiltersGeometry
     vtkFiltersModeling
     vtkFiltersParallel
+    vtkFiltersVerdict
     vtkIOCore
     vtkIOGeometry
     vtkIOLegacy
@@ -57,6 +59,7 @@ matlab_add_mex(NAME vtkAlignNodesWithElectrodes SRC vtkAlignNodesWithElectrodes/
 matlab_add_mex(NAME vtkAppendFilter SRC vtkAppendFilter/vtkAppendFilter.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES})
 matlab_add_mex(NAME vtkAppendPolyData SRC vtkAppendPolyData/vtkAppendPolyData.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES})
 matlab_add_mex(NAME vtkArrayMapperNearestNeighbor SRC vtkArrayMapperNearestNeighbor/vtkArrayMapperNearestNeighbor.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES})
+matlab_add_mex(NAME vtkBarycentricCoords SRC vtkBarycentricCoords/vtkBarycentricCoords.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES})
 matlab_add_mex(NAME vtkBooleanOperationPolyDataFilter SRC vtkBooleanOperationPolyDataFilter/vtkBooleanOperationPolyDataFilter.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES})
 matlab_add_mex(NAME vtkCellCentroids SRC vtkCellCentroids/vtkCellCentroids.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES})
 matlab_add_mex(NAME vtkCellDataToPointData SRC vtkCellDataToPointData/vtkCellDataToPointData.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES})
@@ -67,13 +70,19 @@ matlab_add_mex(NAME vtkContourFilter SRC vtkContourFilter/vtkContourFilter.cxx L
 matlab_add_mex(NAME vtkDataSetSurfaceFilter SRC vtkDataSetSurfaceFilter/vtkDataSetSurfaceFilter.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES})
 matlab_add_mex(NAME vtkExtractEdges SRC vtkExtractEdges/vtkExtractEdges.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES})
 matlab_add_mex(NAME vtkFeatureEdges SRC vtkFeatureEdges/vtkFeatureEdges.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES})
-matlab_add_mex(NAME vtkIntegrateAttributes SRC vtkIntegrateAttributes/vtkIntegrateAttributes LINK_TO vtkMatlab ${VTK_LIBRARIES})
+if(VTK_VERSION VERSION_GREATER_EQUAL 8.2)
+	matlab_add_mex(NAME vtkIntegrateAttributes SRC vtkIntegrateAttributes/vtkIntegrateAttributes LINK_TO vtkMatlab ${VTK_LIBRARIES})
+else()
+	message(WARNING "Skipping vtkIntegrateAttributes as VTK 8.2 or newer is required.")
+endif()
 matlab_add_mex(NAME vtkStreamTracer SRC vtkStreamTracer/vtkStreamTracer.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES})
 matlab_add_mex(NAME vtkLinearExtrusionFilter SRC vtkLinearExtrusionFilter/vtkLinearExtrusionFilter.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES})
 matlab_add_mex(NAME vtkLinearSubdivisionFilter SRC vtkLinearSubdivisionFilter/vtkLinearSubdivisionFilter.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES})
 matlab_add_mex(NAME vtkLoopSubdivisionFilter SRC vtkLoopSubdivisionFilter/vtkLoopSubdivisionFilter.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES})
+matlab_add_mex(NAME vtkMeshQuality SRC vtkMeshQuality/vtkMeshQuality.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES})
 matlab_add_mex(NAME vtkPointDataToCellData SRC vtkPointDataToCellData/vtkPointDataToCellData.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES})
 matlab_add_mex(NAME vtkSmoothPolyDataFilter SRC vtkSmoothPolyDataFilter/vtkSmoothPolyDataFilter.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES})
 matlab_add_mex(NAME vtkThreshold SRC vtkThreshold/vtkThreshold.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES})
 matlab_add_mex(NAME vtkTriangleFilter SRC vtkTriangleFilter/vtkTriangleFilter.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES})
+matlab_add_mex(NAME vtkWindowedSincPolyDataFilter SRC vtkWindowedSincPolyDataFilter/vtkWindowedSincPolyDataFilter.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES})
 #matlab_add_mex(NAME vtkMmg3d SRC vtkMmg3d/vtkMmg3d.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES} mmg3d Scotch)
