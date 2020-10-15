@@ -131,11 +131,21 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     
     ///// For each point in targetPolyData: Find triangle in sourcePolyData that is intersected by the line in normal direction passing through this point /////
     
-    vtkSmartPointer<vtkDoubleArray> normalsArray = vtkSmartPointer<vtkDoubleArray>::New();
-    normalsArray->SetNumberOfComponents(3);
-    normalsArray->SetNumberOfTuples(targetPolyData->GetNumberOfPoints());
-    normalsArray->SetName("normals");
-    targetPolyData->GetPointData()->AddArray(normalsArray);
+    bool computeNormal = false;
+    vtkDataArray* normalsArray;
+    if(targetPolyData->GetPointData()->HasArray("normals") != 1)
+    {
+    	computeNormal = true;
+		vtkSmartPointer<vtkDoubleArray> nArray = vtkSmartPointer<vtkDoubleArray>::New();
+		normalsArray = nArray;
+		normalsArray->SetNumberOfComponents(3);
+		normalsArray->SetNumberOfTuples(targetPolyData->GetNumberOfPoints());
+		normalsArray->SetName("normals");
+		targetPolyData->GetPointData()->AddArray(normalsArray);
+    }
+    else
+    	normalsArray = targetPolyData->GetPointData()->GetArray("normals");
+    
     
     vtkSmartPointer<vtkIntArray> notFoundArray = vtkSmartPointer<vtkIntArray>::New();
     notFoundArray->SetNumberOfComponents(1);
@@ -170,8 +180,17 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     {
         Vector3<double> n, p1, p2, p3;
         targetPolyData->GetPoint(id, p1.GetArray());
-        GetPointNormal(targetPolyData, id, normalLength, n);
-        normalsArray->SetTuple(id, n.GetArray());
+        if(computeNormal)
+        {
+			GetPointNormal(targetPolyData, id, normalLength, n);
+			normalsArray->SetTuple(id, n.GetArray());
+        }
+        else
+        {
+	        normalsArray->GetTuple(id, n.GetArray());
+	        n *= normalLength;
+	    }
+        
         p2 = p1 + n;
         p3 = p1 - n;
         double t, x[3], pCoords[3];
@@ -212,7 +231,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
         }
     }
     if(numNotFound > 0)
-        mexWarnMsgTxt(("No source cell found for " + std::to_string(numNotFound) + " target points. Check field 'pointData.notFound' of the 4th output argument.").c_str());
+        mexWarnMsgTxt(("No source cell found for " + std::to_string(numNotFound) + " target points. Check field 'pointData.notFound' of output argument 'targetStruct'.").c_str());
     
     ///// Convert vtkPointSet into MATLAB struct /////
     
