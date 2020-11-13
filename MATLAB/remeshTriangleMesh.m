@@ -1,7 +1,10 @@
-function vtk = remeshTriangleMesh(vtk, numPoints, creaseAngle)
+function vtk = remeshTriangleMesh(vtk, numPoints, extraFlags)
 
-if nargin < 3
-    creaseAngle = [];
+if nargin < 3 || isempty(extraFlags)
+    extraFlags = '';
+end
+if ~isempty(numPoints)
+    extraFlags = sprintf('%s -v %i', extraFlags, round(numPoints));
 end
 
 % make sure the source mesh contains at least 4 times as many triangles as
@@ -9,7 +12,11 @@ end
 numPointsSource = size(vtk.cells,1);
 numSubdiv = max(1-floor(log(numPointsSource/numPoints)/log(4)),0);
 if numSubdiv
-    vtk = vtkLinearSubdivisionFilter(vtk, numSubdiv);
+    try
+        vtk = vtkLinearSubdivisionFilter(vtk, numSubdiv);
+    catch
+        warning('Skipping subdivision before remeshing.');
+    end
 end
 
 tmpfile = [tempname '.ply'];
@@ -21,17 +28,14 @@ if noAliasFound
     instantmeshes = '/Applications/Instant Meshes.app/Contents/MacOS/Instant Meshes';
 end
 if ~exist(instantmeshes, 'file')
-    instantmeshes = '/Volumes/ServerApps/Instant Meshes.app/Contents/MacOS/Instant Meshes';
+    instantmeshes = '/Users/ss029/Applications/Instant Meshes.app/Contents/MacOS/Instant Meshes';
+%     instantmeshes = '/Volumes/ServerApps/Instant Meshes.app/Contents/MacOS/Instant Meshes';
 end
 if ~exist(instantmeshes, 'file')
     error('Instant Meshes could not be found.');
 end
 
-if isempty(creaseAngle)
-    system(sprintf('''%s'' %s -v %i -o %s -r 6 -p 6 -S 0 -d', instantmeshes, tmpfile, round(numPoints), tmpfile));
-else
-    system(sprintf('''%s'' %s -v %i -o %s -r 6 -p 6 -S 0 -d -c %.1f', instantmeshes, tmpfile, round(numPoints), tmpfile, creaseAngle));
-end
+system(sprintf('''%s'' %s -o %s -r 6 -p 6 -S 0 -d %s', instantmeshes, tmpfile, tmpfile, extraFlags));
 
 vtk = vtkRead(tmpfile);
 delete(tmpfile);

@@ -49,8 +49,6 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     
     ///// Apply vtkGradientFilter and vtkStreamTracer /////
     
-    if(pointSet1->GetDataObjectType() == VTK_POLY_DATA)
-        mexErrMsgTxt("vtkStreamTracer requires an unstructured grid as first input.");
     if(pointSet2->GetDataObjectType() != VTK_POLY_DATA)
         mexErrMsgTxt("vtkStreamTracer requires poly data as second input. Incompatible cell(s) found.");
     

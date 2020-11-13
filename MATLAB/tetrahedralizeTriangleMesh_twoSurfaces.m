@@ -1,9 +1,12 @@
-function vtk_vol = tetrahedralizeTriangleMesh_twoSurfaces(vtk_inner_sur, vtk_outer_sur, relativeEdgeLength, optimizeThreshold)
+function vtk_vol = tetrahedralizeTriangleMesh_twoSurfaces(vtk_inner_sur, vtk_outer_sur, relativeEdgeLength, optimizeThreshold, optimizeNetgen)
 
-if nargin < 4
-    optimizeThreshold = 0.3;
+if nargin < 5
+    optimizeNetgen = false;
 end
-if nargin < 3
+if nargin < 4 || isempty(optimizeThreshold)
+    optimizeThreshold = 1;
+end
+if nargin < 3 || isempty(relativeEdgeLength)
     relativeEdgeLength = 1;
 end
 
@@ -25,11 +28,20 @@ clmax = relativeEdgeLength*0.7*meanEdgeLength;
 gmsh = 'gmsh';
 [noAliasFound,~] = system(sprintf('which %s', gmsh));
 if noAliasFound
+    gmsh = '/Applications/Gmsh.app/Contents/MacOS/gmsh';
+end
+if ~exist(gmsh, 'file')
     gmsh = '/Volumes/ServerApps/Gmsh.app/Contents/MacOS/gmsh';
 end
+if ~exist(gmsh, 'file')
+    error('Gmsh could not be found.');
+end
 
-system(sprintf('%s %s -3 -order 1 -format vtk -v 4 -clmax %.3f -optimize_threshold %.3f', gmsh, geofile, clmax, optimizeThreshold));
-% system(sprintf('%s %s -3 -order 1 -format vtk -v 4 -clmax %.3f -optimize_netgen -optimize_threshold %.3f', gmsh, geofile, clmax, optimizeThreshold));
+if optimizeNetgen
+    system(sprintf('%s %s -3 -order 1 -format vtk -v 4 -clmax %.3f -optimize_netgen -optimize_threshold %.3f', gmsh, geofile, clmax, optimizeThreshold));
+else
+    system(sprintf('%s %s -3 -order 1 -format vtk -v 4 -clmax %.3f -optimize_threshold %.3f', gmsh, geofile, clmax, optimizeThreshold));
+end
 
 vtkfile = [tmpdir '/' geoname '.vtk'];
 vtk_vol = vtkRead(vtkfile);

@@ -4,7 +4,7 @@ if nargin < 4
     optimizeNetgen = false;
 end
 if nargin < 3 || isempty(optimizeThreshold)
-    optimizeThreshold = 0.3;
+    optimizeThreshold = 1;
 end
 if nargin < 2 || isempty(relativeEdgeLength)
     relativeEdgeLength = 1;
