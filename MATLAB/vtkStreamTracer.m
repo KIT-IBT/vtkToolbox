@@ -9,7 +9,7 @@
 % Syntax:
 % outStruct = vtkStreamTracer(inStruct1, cellsOrPoints, arrayName,
 %                             inStruct2, direction, stepLength,
-%                             endPointPrecision, maxLength)
+%                             endPointPrecision, maxLength, maxNumSteps)
 %
 % inStruct1: unstructured grid
 % cellsOrPoints: 'cells' or 'points'
@@ -26,9 +26,10 @@
 %                    between the ends of streamlines and the domain boundary.
 %                    (optional, default: -1, i.e. no secondary run)
 % maxLength: maximum propagation length (optional, default: 1e3*stepLength)
+% maxNumSteps: maximum number of steps for a streamline (optional, default: 2000)
 %
 % Written in 2020 by Steffen Schuler
 % Institute of Biomedical Engineering, KIT
 % www.ibt.kit.edu
 
-function outStruct = vtkStreamTracer(inStruct1, cellsOrPoints, arrayName, inStruct2, direction, stepLength, endPointPrecision, maxLength) %#ok
+function outStruct = vtkStreamTracer(inStruct1, cellsOrPoints, arrayName, inStruct2, direction, stepLength, endPointPrecision, maxLength, maxNumSteps) %#ok

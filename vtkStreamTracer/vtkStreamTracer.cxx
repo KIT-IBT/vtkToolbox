@@ -12,8 +12,8 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 {
     ///// Parse inputs /////
     
-    const std::string syntax = "outStruct = vtkStreamTracer(inStruct1, cellsOrPoints, arrayName, inStruct2, direction, stepLength, endPointPrecision, maxLength)";
-    if(nrhs > 8)
+    const std::string syntax = "outStruct = vtkStreamTracer(inStruct1, cellsOrPoints, arrayName, inStruct2, direction, stepLength, endPointPrecision, maxLength, maxNumSteps)";
+    if(nrhs > 9)
         mexErrMsgTxt(("Too many input arguments. Syntax: " + syntax).c_str());
     if(nrhs < 6)
         mexErrMsgTxt(("Not enough input arguments. Syntax: " + syntax).c_str());
@@ -30,6 +30,9 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     double stepLength = mxGetScalar(prhs[5]);
     double endPointPrecision = -1;
     double maxLength = 1e3*stepLength;
+    vtkIdType maxNumSteps = 2000;
+    if(nrhs > 8)
+        maxNumSteps = mxGetScalar(prhs[8]);
     if(nrhs > 7)
         maxLength = mxGetScalar(prhs[7]);
     if(nrhs > 6)
@@ -111,6 +114,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     streamTracer->SetIntegrationStepUnit(vtkStreamTracer::LENGTH_UNIT);
     streamTracer->SetInitialIntegrationStep(stepLength);
     streamTracer->SetMaximumPropagation(maxLength);
+    streamTracer->SetMaximumNumberOfSteps(maxNumSteps);
     streamTracer->SetComputeVorticity(false);
     streamTracer->Update();
     
