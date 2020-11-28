@@ -28,8 +28,7 @@ if noAliasFound
     instantmeshes = '/Applications/Instant Meshes.app/Contents/MacOS/Instant Meshes';
 end
 if ~exist(instantmeshes, 'file')
-    instantmeshes = '/Users/ss029/Applications/Instant Meshes.app/Contents/MacOS/Instant Meshes';
-%     instantmeshes = '/Volumes/ServerApps/Instant Meshes.app/Contents/MacOS/Instant Meshes';
+    instantmeshes = '/Volumes/ServerApps/Instant Meshes.app/Contents/MacOS/Instant Meshes';
 end
 if ~exist(instantmeshes, 'file')
     error('Instant Meshes could not be found.');
