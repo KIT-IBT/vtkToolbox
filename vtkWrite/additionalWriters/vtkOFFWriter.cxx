@@ -32,7 +32,7 @@ void vtkOFFWriter::WriteData()
     }
     
     vtkDebugMacro(<<"Opening vtk file for writing...");
-    ostream *outfilep = new ofstream(this->FileName, ios::out);
+    ostream *outfilep = new std::ofstream(this->FileName, ios::out);
     if(outfilep->fail())
     {
         vtkErrorMacro(<< "Unable to open file: "<< this->FileName);
@@ -58,7 +58,8 @@ void vtkOFFWriter::WriteData()
     }
     
     // write cells
-    vtkIdType npts = 0, *pts = NULL;
+    vtkIdType npts = 0;
+    const vtkIdType *pts = NULL;
     for(int i = 0; i < numCells; i++)
     {
         input->GetCellPoints(i, npts, pts);

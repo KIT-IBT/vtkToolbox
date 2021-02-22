@@ -45,7 +45,9 @@ if(NOT VTK_FOUND)
 else()
     message(STATUS "Found VTK: " ${VTK_DIR})
 endif()
-include(${VTK_USE_FILE})
+if(VTK_VERSION LESS 8.9)
+	include(${VTK_USE_FILE})
+endif()
 
 ## Build library "vtkMatlab", which is used by all MEX functions in this toolbox
 include_directories(libvtkMatlab ${Matlab_INCLUDE_DIRS})

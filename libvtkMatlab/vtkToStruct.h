@@ -23,6 +23,7 @@
 #include <vtkPointSet.h>
 #include <vtkPolyData.h>
 #include <vtkUnstructuredGrid.h>
+#include <vtkCellTypes.h>
 
 // data set attributes
 #include <vtkPointData.h>
