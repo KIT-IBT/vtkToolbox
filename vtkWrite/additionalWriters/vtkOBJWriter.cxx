@@ -48,6 +48,7 @@
 #include <vtkErrorCode.h>
 #include <vtkObjectFactory.h>
 #include <vtkSmartPointer.h>
+#include <vtkVersionMacros.h>
 
 vtkStandardNewMacro(vtkOBJWriter);
 
@@ -120,7 +121,11 @@ void vtkOBJWriter::WriteData()
     if(input->GetNumberOfVerts() > 0)
     {
         vtkIdType npts = 0;
-        const vtkIdType *index = 0;
+        #if VTK_MAJOR_VERSION > 8
+            const vtkIdType *index = 0;
+        #else
+               vtkIdType *index = 0;
+        #endif
         vtkCellArray *cells = input->GetVerts();
         for(cells->InitTraversal(); cells->GetNextCell(npts, index); )
         {
@@ -135,7 +140,11 @@ void vtkOBJWriter::WriteData()
     if(input->GetNumberOfLines() > 0)
     {
         vtkIdType npts = 0;
-        const vtkIdType *index = 0;
+        #if VTK_MAJOR_VERSION > 8
+            const vtkIdType *index = 0;
+        #else
+               vtkIdType *index = 0;
+        #endif
         vtkCellArray *cells = input->GetLines();
         for(cells->InitTraversal(); cells->GetNextCell(npts, index); )
         {
@@ -157,7 +166,11 @@ void vtkOBJWriter::WriteData()
     if(input->GetNumberOfPolys() > 0)
     {
         vtkIdType npts = 0;
-        const vtkIdType *index = 0;
+        #if VTK_MAJOR_VERSION > 8
+            const vtkIdType *index = 0;
+        #else
+               vtkIdType *index = 0;
+        #endif
         vtkCellArray *cells = input->GetPolys();
         for(cells->InitTraversal(); cells->GetNextCell(npts, index); )
         {
@@ -187,7 +200,11 @@ void vtkOBJWriter::WriteData()
     if(input->GetNumberOfStrips() > 0)
     {
         vtkIdType npts = 0;
-        const vtkIdType *index = 0;
+        #if VTK_MAJOR_VERSION > 8
+            const vtkIdType *index = 0;
+        #else
+               vtkIdType *index = 0;
+        #endif
         vtkCellArray *cells = input->GetStrips();
         for(cells->InitTraversal(); cells->GetNextCell(npts, index); )
         {

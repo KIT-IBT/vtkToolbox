@@ -6,6 +6,7 @@
 #include <vtkInformation.h>
 #include <vtkErrorCode.h>
 #include <vtkObjectFactory.h>
+#include <vtkVersionMacros.h>
 
 vtkStandardNewMacro(vtkOFFWriter);
 
@@ -59,7 +60,11 @@ void vtkOFFWriter::WriteData()
     
     // write cells
     vtkIdType npts = 0;
-    const vtkIdType *pts = NULL;
+	#if VTK_MAJOR_VERSION > 8
+		const vtkIdType *pts = 0;
+	#else
+		vtkIdType *pts = 0;
+	#endif
     for(int i = 0; i < numCells; i++)
     {
         input->GetCellPoints(i, npts, pts);
