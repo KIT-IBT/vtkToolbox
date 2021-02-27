@@ -316,6 +316,9 @@ vtkPointSet* structToVtk(const mxArray* inStruct, vtkPolyData* polyData, vtkUnst
             pointDataArray->SetName(arrayName);
             outPointSet->GetPointData()->AddArray(pointDataArray);
         }
+        
+        if(outPointSet->GetDataObjectType() == VTK_POLY_DATA && outPointSet->GetPointData()->HasArray("Normals"))
+            outPointSet->GetPointData()->SetNormals(outPointSet->GetPointData()->GetArray("Normals"));
     }
     
     ///// Process cell data /////
@@ -337,6 +340,9 @@ vtkPointSet* structToVtk(const mxArray* inStruct, vtkPolyData* polyData, vtkUnst
             cellDataArray->SetName(arrayName);
             outPointSet->GetCellData()->AddArray(cellDataArray);
         }
+        
+        if(outPointSet->GetDataObjectType() == VTK_POLY_DATA && outPointSet->GetCellData()->HasArray("Normals"))
+            outPointSet->GetCellData()->SetNormals(outPointSet->GetCellData()->GetArray("Normals"));
     }
     
     ///// Process field data /////
