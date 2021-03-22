@@ -49,8 +49,16 @@ if(VTK_VERSION LESS 8.9)
 	include(${VTK_USE_FILE})
 endif()
 
+## Set up Eigen3 dependency (needed for vtkFillSurfaceHoles)
+find_package(Eigen3 REQUIRED)
+if(NOT EIGEN3_FOUND)
+    message(FATAL_ERROR "Eigen3 could not be found. Try setting EIGEN3_INCLUDE_DIR.")
+else()
+    message(STATUS "Found Eigen3: " ${EIGEN3_INCLUDE_DIR})
+endif()
+
 ## Build library "vtkMatlab", which is used by all MEX functions in this toolbox
-include_directories(libvtkMatlab ${Matlab_INCLUDE_DIRS})
+include_directories(libvtkMatlab ${Matlab_INCLUDE_DIRS} ${EIGEN3_INCLUDE_DIR})
 add_library(vtkMatlab STATIC libvtkMatlab/common.cxx libvtkMatlab/vtkToStruct.cxx libvtkMatlab/structToVtk.cxx)
 target_link_libraries(vtkMatlab ${VTK_LIBRARIES})
 
@@ -88,3 +96,5 @@ matlab_add_mex(NAME vtkThreshold SRC vtkThreshold/vtkThreshold.cxx LINK_TO vtkMa
 matlab_add_mex(NAME vtkTriangleFilter SRC vtkTriangleFilter/vtkTriangleFilter.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES})
 matlab_add_mex(NAME vtkWindowedSincPolyDataFilter SRC vtkWindowedSincPolyDataFilter/vtkWindowedSincPolyDataFilter.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES})
 #matlab_add_mex(NAME vtkMmg3d SRC vtkMmg3d/vtkMmg3d.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES} mmg3d Scotch)
+matlab_add_mex(NAME vtkFillSurfaceHoles SRC vtkFillSurfaceHoles/vtkFillSurfaceHoles.cxx vtkFillSurfaceHoles/FillSurfaceHoles/SurfaceHoleFiller.cpp vtkFillSurfaceHoles/FillSurfaceHoles/UmbrellaWeightedOrder2Smoother.cpp vtkFillSurfaceHoles/FillSurfaceHoles/CoverRefiner.cpp LINK_TO vtkMatlab ${VTK_LIBRARIES})
+target_link_libraries(vtkFillSurfaceHoles Eigen3::Eigen)
