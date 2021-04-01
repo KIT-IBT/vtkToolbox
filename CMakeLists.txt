@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.3)
+cmake_minimum_required(VERSION 3.11)
 set(CMAKE_BUILD_TYPE Release)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
@@ -50,9 +50,21 @@ if(VTK_VERSION LESS 8.9)
 endif()
 
 ## Set up Eigen3 dependency (needed for vtkFillSurfaceHoles)
-find_package(Eigen3 REQUIRED)
+find_package(Eigen3)
 if(NOT EIGEN3_FOUND)
-    message(FATAL_ERROR "Eigen3 could not be found. Try setting EIGEN3_INCLUDE_DIR.")
+	message(STATUS "Eigen3 could not be found - downloading...")
+	include(FetchContent)
+	FetchContent_Declare(
+	  eigen
+	  GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
+	  GIT_TAG        3.3.9
+	)
+	FetchContent_GetProperties(eigen)
+	if(NOT eigen_POPULATED)
+	  FetchContent_Populate(eigen)
+	endif()
+	set(EIGEN3_INCLUDE_DIR ${eigen_SOURCE_DIR})
+	message(STATUS "EIGEN3_INCLUDE_DIR: " ${EIGEN3_INCLUDE_DIR})
 else()
     message(STATUS "Found Eigen3: " ${EIGEN3_INCLUDE_DIR})
 endif()
@@ -97,4 +109,3 @@ matlab_add_mex(NAME vtkTriangleFilter SRC vtkTriangleFilter/vtkTriangleFilter.cx
 matlab_add_mex(NAME vtkWindowedSincPolyDataFilter SRC vtkWindowedSincPolyDataFilter/vtkWindowedSincPolyDataFilter.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES})
 #matlab_add_mex(NAME vtkMmg3d SRC vtkMmg3d/vtkMmg3d.cxx LINK_TO vtkMatlab ${VTK_LIBRARIES} mmg3d Scotch)
 matlab_add_mex(NAME vtkFillSurfaceHoles SRC vtkFillSurfaceHoles/vtkFillSurfaceHoles.cxx vtkFillSurfaceHoles/FillSurfaceHoles/SurfaceHoleFiller.cpp vtkFillSurfaceHoles/FillSurfaceHoles/UmbrellaWeightedOrder2Smoother.cpp vtkFillSurfaceHoles/FillSurfaceHoles/CoverRefiner.cpp LINK_TO vtkMatlab ${VTK_LIBRARIES})
-target_link_libraries(vtkFillSurfaceHoles Eigen3::Eigen)
