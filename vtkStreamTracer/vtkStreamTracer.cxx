@@ -107,8 +107,12 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     else
         mexErrMsgTxt("cellsOrPoints must be \"cells\" or \"points\".");
     
+    if(pointSet1->GetDataObjectType() == VTK_POLY_DATA)
+        streamTracer->SurfaceStreamlinesOn();
+    else
+        streamTracer->SurfaceStreamlinesOff();
+    
     streamTracer->SetSourceData(pointSet2);
-    streamTracer->SurfaceStreamlinesOff();
     streamTracer->SetIntegratorTypeToRungeKutta4();
     streamTracer->SetIntegrationDirection(direction);
     streamTracer->SetIntegrationStepUnit(vtkStreamTracer::LENGTH_UNIT);
