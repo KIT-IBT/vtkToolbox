@@ -44,13 +44,27 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
         mexErrMsgTxt("cellsOrPoints must be \"cells\" or \"points\".");
     
     double* thresholds = mxGetPr(prhs[3]);
-    if(!std::isfinite(thresholds[0]))
-        threshold->ThresholdByLower(thresholds[1]);
-    else if(!std::isfinite(thresholds[1]))
-        threshold->ThresholdByUpper(thresholds[0]);
-    else
-        threshold->ThresholdBetween(thresholds[0], thresholds[1]);
-        
+    #if VTK_VERSION_NUMBER >= 901000000
+        if(!std::isfinite(thresholds[0])) {
+            threshold->SetThresholdFunction(vtkThreshold::THRESHOLD_LOWER);
+            threshold->SetLowerThreshold(thresholds[1]);
+        } else if(!std::isfinite(thresholds[1])) {
+            threshold->SetThresholdFunction(vtkThreshold::THRESHOLD_UPPER);
+            threshold->SetUpperThreshold(thresholds[0]);
+        } else {
+            threshold->SetThresholdFunction(vtkThreshold::THRESHOLD_BETWEEN);
+            threshold->SetLowerThreshold(thresholds[0]);
+            threshold->SetUpperThreshold(thresholds[1]);
+        }
+    #else
+        if(!std::isfinite(thresholds[0])) {
+            threshold->ThresholdByLower(thresholds[1]);
+        } else if(!std::isfinite(thresholds[1])) {
+            threshold->ThresholdByUpper(thresholds[0]);
+        } else {
+            threshold->ThresholdBetween(thresholds[0], thresholds[1]);
+        }
+    #endif
     threshold->Update();
     
     ///// Convert vtkPointSet into MATLAB struct /////
