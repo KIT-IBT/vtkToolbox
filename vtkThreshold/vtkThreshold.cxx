@@ -44,7 +44,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
         mexErrMsgTxt("cellsOrPoints must be \"cells\" or \"points\".");
     
     double* thresholds = mxGetPr(prhs[3]);
-    #if VTK_VERSION_NUMBER >= 901000000
+    #if VTK_VERSION_NUMBER >= 90100000000
         if(!std::isfinite(thresholds[0])) {
             threshold->SetThresholdFunction(vtkThreshold::THRESHOLD_LOWER);
             threshold->SetLowerThreshold(thresholds[1]);
