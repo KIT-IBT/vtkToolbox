@@ -1,5 +1,6 @@
 #include "structToVtk.h"
 #include "vtkToStruct.h"
+#include <vtkVersion.h>
 
 #include <vtkThreshold.h>
 

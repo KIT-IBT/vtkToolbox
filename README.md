@@ -30,12 +30,22 @@ The general procedure used by filters in the toolbox is:
 Before you can use the toolbox, you first have to compile the MEX functions for your platform:
 * Install VTK (either using a package manager or from source – see https://vtk.org/Wiki/VTK/Configure_and_Build)
 * Compile the MEX functions using CMake. In the folder "vtkToolbox", run:
-    ```
-    mkdir build
-    cd build
-    cmake ..
-    make
-    ```
+    * On Linux/MacOS:
+        ```
+        mkdir build
+        cd build
+        cmake ..
+        make
+        ```
+    * On Windows:
+        ```
+        mkdir build
+        cd build
+        cmake ..
+        ```
+        This will generate a `vtkToolbox.sln` solution file.
+        Open it with the *same version of Visual Studio specified during CMake configuration*.
+        Set the build configuration to `Release`, then build the solution (e.g., select `Build` > `Build Solution` or build the `ALL_BUILD` target).
 
 ## Adding new functions
 
