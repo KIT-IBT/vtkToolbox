@@ -13,6 +13,21 @@ if(NOT Matlab_FOUND)
     message(FATAL_ERROR "Matlab could not be found. Try setting Matlab_ROOT_DIR.")
 endif()
 
+if(APPLE AND CMAKE_SYSTEM_PROCESSOR STREQUAL "arm64")
+    # Matlab_VERSION exists in CMake 3.27+
+    if(DEFINED Matlab_VERSION)
+        if(Matlab_VERSION VERSION_GREATER_EQUAL "23.2.0")  # R2023b
+            add_link_options("LINKER:-ld_classic")
+        endif()
+    else()
+        # Fallback for older CMake: ask FindMatlab to map the release name
+        matlab_get_version_from_release_name("R2023b" MATLAB_R2023B_VERSION)
+        if(Matlab_VERSION_STRING VERSION_GREATER_EQUAL "${MATLAB_R2023B_VERSION}")
+            add_link_options("LINKER:-ld_classic")
+        endif()
+    endif()
+endif()
+
 ## Set up VTK dependency
 # Select only VTK components (libraries to be linked to) that are needed.
 # (Removing the COMPONENTS argument from find_package links all of them.)
