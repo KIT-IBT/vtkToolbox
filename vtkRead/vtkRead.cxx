@@ -69,6 +69,10 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
         reader->SetFileName(path.c_str());
         if(!reader->OpenVTKFile())
             mexErrMsgTxt("File cannot be opened by vtkDataSetReader. Does it exist?");
+        reader->ReadAllScalarsOn();
+        reader->ReadAllVectorsOn();
+        reader->ReadAllTensorsOn();
+        reader->ReadAllFieldsOn();
         reader->Update();
         
         if(reader->IsFilePolyData())
