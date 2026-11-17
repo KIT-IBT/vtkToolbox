@@ -13,21 +13,6 @@ if(NOT Matlab_FOUND)
     message(FATAL_ERROR "Matlab could not be found. Try setting Matlab_ROOT_DIR.")
 endif()
 
-if(APPLE AND CMAKE_SYSTEM_PROCESSOR STREQUAL "arm64")
-    # Matlab_VERSION exists in CMake 3.27+
-    if(DEFINED Matlab_VERSION)
-        if(Matlab_VERSION VERSION_GREATER_EQUAL "23.2.0")  # R2023b
-            add_link_options("LINKER:-ld_classic")
-        endif()
-    else()
-        # Fallback for older CMake: ask FindMatlab to map the release name
-        matlab_get_version_from_release_name("R2023b" MATLAB_R2023B_VERSION)
-        if(Matlab_VERSION_STRING VERSION_GREATER_EQUAL "${MATLAB_R2023B_VERSION}")
-            add_link_options("LINKER:-ld_classic")
-        endif()
-    endif()
-endif()
-
 ## Set up VTK dependency
 # Select only VTK components (libraries to be linked to) that are needed.
 # (Removing the COMPONENTS argument from find_package links all of them.)
@@ -124,3 +109,17 @@ matlab_add_mex(NAME vtkTriangleFilter SRC vtkTriangleFilter/vtkTriangleFilter.cx
 matlab_add_mex(NAME vtkWindowedSincPolyDataFilter SRC vtkWindowedSincPolyDataFilter/vtkWindowedSincPolyDataFilter.cxx LINK_TO vtkMatlab)
 #matlab_add_mex(NAME vtkMmg3d SRC vtkMmg3d/vtkMmg3d.cxx LINK_TO vtkMatlab mmg3d Scotch)
 matlab_add_mex(NAME vtkFillSurfaceHoles SRC vtkFillSurfaceHoles/vtkFillSurfaceHoles.cxx vtkFillSurfaceHoles/FillSurfaceHoles/SurfaceHoleFiller.cpp vtkFillSurfaceHoles/FillSurfaceHoles/UmbrellaWeightedOrder2Smoother.cpp vtkFillSurfaceHoles/FillSurfaceHoles/CoverRefiner.cpp LINK_TO vtkMatlab)
+
+# On macOS, FindMatlab exports the C++ MEX API symbols (cppMexFunction.map) for every MEX file.
+# The new Apple linker (ld-prime) rejects exporting these undefined symbols. All MEX files here
+# use the C API, so drop the C++ map and the corresponding -U flags.
+if(APPLE)
+    get_property(_mex_targets DIRECTORY PROPERTY BUILDSYSTEM_TARGETS)
+    list(REMOVE_ITEM _mex_targets vtkMatlab)
+    foreach(_target IN LISTS _mex_targets)
+        get_target_property(_flags ${_target} LINK_FLAGS)
+        string(REPLACE " -Wl,-U,_mexCreateMexFunction -Wl,-U,_mexDestroyMexFunction -Wl,-U,_mexFunctionAdapter" "" _flags "${_flags}")
+        string(REPLACE " -Wl,-exported_symbols_list,${Matlab_EXTERN_LIBRARY_DIR}/cppMexFunction.map" "" _flags "${_flags}")
+        set_target_properties(${_target} PROPERTIES LINK_FLAGS "${_flags}")
+    endforeach()
+endif()

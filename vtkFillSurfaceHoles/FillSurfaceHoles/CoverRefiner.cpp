@@ -12,6 +12,7 @@ PURPOSE.  See the above copyright notice for more information.
 #include <vtkPolyDataWriter.h>
 
 #include <stack>
+#include <iostream>
 
 
 void CoverRefiner::InitializeConnectivityMatrix(ConnectivityMatrixType& conn){
