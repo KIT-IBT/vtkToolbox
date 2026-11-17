@@ -10,6 +10,7 @@ PURPOSE.  See the above copyright notice for more information.
 #include <vtkSmartPointer.h>
 #include <vtkPolyDataWriter.h>
 #include <vtkPolyData.h>
+#include <iostream>
 
 
 
